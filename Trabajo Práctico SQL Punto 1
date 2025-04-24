@@ -1,0 +1,39 @@
+CREATE TABLE autor (
+  id_autor INT PRIMARY KEY,
+  nombre VARCHAR(50),
+  nacionalidad VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE libro (
+  id INT PRIMARY KEY,
+  titulo VARCHAR(50) NOT NULL,
+  genero VARCHAR(50) NOT NULL,
+  autor VARCHAR(50),
+  FOREIGN KEY (autor) REFERENCES autor(id_autor) ON DELETE SET NULL
+);
+
+INSERT INTO autor (id_autor, nombre, nacionalidad)
+VALUES ('1', 'Vicente Lopez', 'Argelia');
+INSERT INTO libro (id, titulo, genero, autor)
+VALUES ('1', 'La Vida de un Super', 'Accion', '1');
+
+INSERT INTO autor (id_autor, nombre, nacionalidad)
+VALUES ('2', 'Jazmin Buscarini', 'Floptropica');
+INSERT INTO libro (id, titulo, genero, autor)
+VALUES ('2', 'El Gran Equivalente del Universo', 'flashero', '2');
+
+INSERT INTO autor (id_autor, nombre, nacionalidad)
+VALUES ('3', 'Morena Medina', 'Argentina');
+INSERT INTO libro (id, titulo, genero, autor)
+VALUES ('3', 'Mi Historia', 'Terror', '3');
+
+INSERT INTO autor (id_autor, nombre, nacionalidad)
+VALUES ('4', 'Pilar Ramos', 'Argentina');
+INSERT INTO libro (id, titulo, genero, autor)
+VALUES ('4', 'Guia para mirar las 22 temporadas de Precure', 'Guia', '4');
+
+INSERT INTO autor (id_autor, nombre, nacionalidad)
+VALUES ('5', 'Pilli', 'Neuquen');
+INSERT INTO libro (id, titulo, genero, autor)
+VALUES ('5', 'La Hiccupstoria de un Culto', 'Educativo', '5');
+
