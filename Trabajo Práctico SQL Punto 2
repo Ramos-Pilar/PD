@@ -1,0 +1,29 @@
+CREATE TABLE cliente (
+  id_cliente INT PRIMARY KEY,
+  nombre VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE producto(
+  id_producto INT PRIMARY KEY,
+  nombre VARCHAR(50) NOT NULL,
+  precio INT NOT NULL
+);
+
+CREATE TABLE pedido(
+  id_pedido INT PRIMARY KEY,
+  cliente INT,
+  producto INT,
+  cantidad INT NOT NULL,
+  fecha DATE,
+  FOREIGN KEY (cliente) REFERENCES cliente(id_cliente) ON DELETE SET NULL,
+  FOREIGN KEY (producto) REFERENCES producto(id_producto) ON DELETE SET NULL
+);
+
+  INSERT INTO cliente (id_cliente, nombre)
+  VALUES ('1', 'Jazmín Buscarini'), ('2', 'Morena Medina'), ('3', 'Pilar Ramos'), ('4', 'Pilli'), ('5', 'Hiccup');
+  
+  INSERT INTO producto (id_producto, nombre, precio)
+  VALUES ('1', 'Lápiz', '$10'), ('2', 'Lapicera', '$20'), ('3', 'Marcador', '$30'), ('4', 'Cartulina', '$50'), ('5', 'Carpeta', '$60');
+
+INSERT INTO pedido (id_pedido, cliente, producto, cantidad, fecha)
+VALUES ('1', '2', '4', '15', '2025-04-23'), ('2', '1', '1', '4', '2025-03-12'), ('3', '3', '2', '3', '2025-02-21'), ('4', '5', '3', '33', '2025-03-13'), ('5', '4', '5', '3', '2025-04-24');
